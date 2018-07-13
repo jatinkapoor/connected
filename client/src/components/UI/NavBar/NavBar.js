@@ -7,19 +7,22 @@ import {
   TopAppBarActionItem,
   TopAppBarTitle
 } from 'rmwc/TopAppBar';
+import { Elevation } from 'rmwc/Elevation';
 
 import './NavBar.css';
 
 const NavBar = (props) => {
 
   return (
-    <TopAppBar fixed dense className="nav">
-      <TopAppBarRow>
-        <TopAppBarSection alignStart>
-          <TopAppBarTitle>Connected</TopAppBarTitle>
-        </TopAppBarSection>
-      </TopAppBarRow>
-    </TopAppBar>
+    <Elevation z={11}>
+      <TopAppBar fixed className="nav">
+        <TopAppBarRow>
+          <TopAppBarSection alignStart>
+            <TopAppBarTitle>Connected</TopAppBarTitle>
+          </TopAppBarSection>
+        </TopAppBarRow>
+      </TopAppBar>
+    </Elevation>
   );
 }
 

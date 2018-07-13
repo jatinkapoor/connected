@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Home from './containers/Home/Home';
-import Login from './containers/Login/Login';
+import Auth from './containers/Auth/Auth';
 
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Login />
+        <Auth />
       </div>
     );
   }

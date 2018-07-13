@@ -3,10 +3,15 @@ import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
 
 const InputText = (props) => {
   return (
+    <React.Fragment>
     <TextField 
+      required
+      type={props.type}
       fullwidth 
-      withTrailingIcon={<TextFieldIcon use="close" />} 
-      label={props.value} />
+      withTrailingIcon={<TextFieldIcon use={props.use} />} 
+      placeholder={props.placeholder} />
+      <TextFieldHelperText validationMsg>The field is required.</TextFieldHelperText>
+    </ React.Fragment>
   );
 }
 
