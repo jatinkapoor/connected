@@ -30,12 +30,6 @@
     "mongoose": "^5.2.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.1",
-<<<<<<< HEAD
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "react-bootstrap": "^0.32.1",
-=======
->>>>>>> master
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
