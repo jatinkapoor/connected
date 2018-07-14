@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const homeRoute = require('./routes/home'); 
 const userRoute = require('./routes/user');
-const messageRoute = require('./routes/messages');
+const messageRoute = require('./routes/message');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
