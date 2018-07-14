@@ -1,6 +1,7 @@
-const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+const User = require('../models/user');
 
 module.exports = {
 
@@ -43,6 +44,7 @@ module.exports = {
 
 
   register_user: (req, res) => {
+    console.log('in here');
     User.find({
       email: req.body.email
     }).exec().then(user => {
@@ -51,7 +53,10 @@ module.exports = {
           message: 'Email Exists'
         });
       } else {
+        console.log('in here 2');
         bcrypt.hash(req.body.password, 10, (err, hash) => {
+          console.log('err', err);
+          console.log(hash);
           if (err) {
             return res.status(500).json({
               error: err
