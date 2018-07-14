@@ -1,16 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const checkAuth = require('../authentication/check-auth');
+const path = require('path');
 
-router.get('/', checkAuth, (req, res) => {
-  res.send('in new home');
+router.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
-
-router.post('/', checkAuth, (req, res) => {
-  res.status(201).json({
-    message: 'I am successfull'
-  });
-});
-
 
 module.exports = router;
