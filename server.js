@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const homeRoute = require('./routes/home'); 
 const userRoute = require('./routes/user');
+const messageRoute = require('./routes/messages');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,10 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static(path.resolve(__dirname, './client/build/')));
 
-
 app.use('/', homeRoute);
 app.use('/user', userRoute);
-
+app.use('/message', messageRoute);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
@@ -29,8 +29,6 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`App listening on ${PORT}`);
 });
-
-
 
 
 
