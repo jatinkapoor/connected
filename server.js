@@ -1,35 +1,44 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const session = require('express-session');
 const passport = require('passport');
-const flash = require('connect-flash');
+const passportJWT = require('passport-jwt');
+const homeRoute = require('./routes/home'); 
+const userRoute = require('./routes/user');
+
+// const JWTStrategy = passportJWT.Strategy;
+// const ExtractJWT = passportJWT.ExtractJwt;
+
+
+// const ops = {
+//   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+//   secretOrKey: process.env.SECRET_KEY
+// }
+
+// const strategy = new JWTStrategy(opts, (payload, next) => {
+//   // GET USER FROM DB
+//   const users = null;
+//   next(null, next);
+// });
+// passport.use(strategy);
+// app.use(passport.initialize());
+
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-
 mongoose.connect('mongodb://127.0.0.1:27017/connectedDB');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-app.use(cookieParser());
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: false  
-}));
-
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
 
 
-const routes = require('./routes/index'); 
-app.use('/', routes);
+app.use('/', homeRoute);
+app.use('/user', userRoute);
 
 app.listen(PORT, () => {
   console.log(`App listening on ${PORT}`);
