@@ -10,4 +10,4 @@ const checkInSchema = new Schema ({
 
 const CheckIn = mongoose.model('CheckIn', checkInSchema);
 
-module.exports = CheckIn; 
+module.exports = CheckIn;
