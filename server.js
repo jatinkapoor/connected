@@ -5,28 +5,8 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const passportJWT = require('passport-jwt');
 const homeRoute = require('./routes/home'); 
 const userRoute = require('./routes/user');
-
-// const JWTStrategy = passportJWT.Strategy;
-// const ExtractJWT = passportJWT.ExtractJwt;
-
-
-// const ops = {
-//   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-//   secretOrKey: process.env.SECRET_KEY
-// }
-
-// const strategy = new JWTStrategy(opts, (payload, next) => {
-//   // GET USER FROM DB
-//   const users = null;
-//   next(null, next);
-// });
-// passport.use(strategy);
-// app.use(passport.initialize());
-
 
 const PORT = process.env.PORT || 3000;
 const app = express();

@@ -10,7 +10,6 @@ router.post('/', checkAuth, (req, res) => {
   res.status(201).json({
     message: 'I am successfull'
   });
-
 });
 
 
