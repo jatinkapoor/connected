@@ -14,6 +14,7 @@ This app is valuable because it helps build relationships and it has the potenti
 
 ## Features
 
+
 * Check-in interface, allowing users slide the toggle for that day and to quickly see who has else has checked in. This interface refreshes every day, clearly showing a green toggle for those who have checked in, and a red toggle for users who haven’t. 
 * Each user has their own newsfeed screen. This typical social-app feature shows whatever the other members of their group have posted. 
 * Private message feature, allowing 2 members of the group to have a private chat. These chats are not saved in the database.
