@@ -1,5 +1,7 @@
-import React, {Component} from "react";
-import {GridCell, GridInner } from 'rmwc/Grid';
+import React, { Component } from "react";
+import { Grid, GridCell, GridInner } from 'rmwc/Grid';
+import { Card } from 'rmwc/Card';
+import { Elevation } from 'rmwc/Elevation';
 import NavBar from '../../components/UI/NavBar/NavBar';
 import "./CheckInFeed.css";
 
@@ -18,18 +20,16 @@ class CheckInFeed extends Component {
 
 	render() {
 		return (
-			<React.Fragment>
+			<div>
 				<NavBar />
-				<GridCell className="grid">
-						<GridInner span="12">
-							<GridCell span="4">Hello
-							</GridCell>
-							<GridCell span="4">World
-							</GridCell>
-							<GridCell span="4">Message
-							</GridCell>
-						</GridInner>
-{	/*				{this.state.usersCheckedIn.map(checkedInUser => (
+				<Grid >
+					<GridCell className="grid" span="12">
+								<Elevation z={11}>
+									<Card className="checked-in-feed-card">
+										Firstname lastname: status/lastcheckin awaymessage
+								</Card>
+								</Elevation>
+						{	/*				{this.state.usersCheckedIn.map(checkedInUser => (
 						<GridCell span="12">
 						<GridInner>
 							<GridCell span="4">Hello
@@ -44,10 +44,11 @@ class CheckInFeed extends Component {
 						</GridInner>
 						</GridCell>
 			))} */}
-				</GridCell>
-			</React.Fragment>
+					</GridCell>
+				</Grid>
+			</div>
 		);
-		
+
 	}
 };
 
