@@ -1,4 +1,9 @@
-grid-cell {
+.grid {
     margin-top: 50px;
-    border: 2px solid black;
+}
+
+.checked-in-feed-card {
+    padding: 4px;
+    line-height: 20px;
+    font-size: 1.5em;
 }
