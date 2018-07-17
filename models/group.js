@@ -1,12 +1,14 @@
-// this schema is used for creating new groups
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const groupSchema = new Schema ({ 
-    groupName: { type: String, required: true }
+const GroupSchema = new Schema({
+    groupName: { type: String, required: true },
+    createdBy: Schema.Types.ObjectId,
+    users: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    createdTimestamp: { type: Date, default: Date.now }
 });
 
-const group = mongoose.model('group', groupSchema);
-
-module.exports = group;
+module.exports = mongoose.model('Group', GroupSchema);
