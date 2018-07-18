@@ -11,15 +11,30 @@ import './Auth.css';
 class Auth extends Component {
 
   state = {
-    activeTabIndex: 0
+    activeTabIndex: 0,
+    loginState: {
+      email: 'email',
+      password: 'password'
+    },
+    registrationState: {
+      firstName: 'firstName',
+      lastName: 'lastName',
+      email: 'email',
+      password: 'password',
+      phone: 'phone'
+    }
   }
 
+
+  formSubmit = (formState) => {
+    console.log('in auth form submit');
+  }
 
   render() {
 
     let renderComp = null;
     if (this.state.activeTabIndex === 0) {
-      renderComp = <Login />
+      renderComp = <Login formSubmit={this.formSubmit}/>
     } else {
       renderComp = <Registration />
     }
@@ -28,8 +43,8 @@ class Auth extends Component {
       <div>
         <NavBar />
         <Grid>
-          <GridCell span="4"> </GridCell>
-          <GridCell span="4" className="text" >
+          <GridCell phone="0" align="middle" tablet="1" desktop="4"> </GridCell>
+          <GridCell phone="4" align="middle" tablet="6" desktop="4" className="text" >
             <Elevation
               z={11}
             >
@@ -44,7 +59,6 @@ class Auth extends Component {
               </Card>
             </Elevation>
           </GridCell>
-          <GridCell span="4"> </GridCell>
         </Grid>
       </div>
     );

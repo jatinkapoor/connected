@@ -9,6 +9,11 @@ const homeRoute = require('./routes/home');
 const userRoute = require('./routes/user');
 const messageRoute = require('./routes/message');
 
+
+const groupRoute = require('./routes/group');
+const postsRoute = require('./routes/posts');
+
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 mongoose.connect('mongodb://127.0.0.1:27017/connectedDB');
@@ -20,7 +25,11 @@ app.use(express.static(path.resolve(__dirname, './client/build/')));
 
 app.use('/', homeRoute);
 app.use('/user', userRoute);
-app.use('/api/message', messageRoute);
+
+app.use('/message', messageRoute);
+app.use('/group', groupRoute);
+app.use('/posts', postsRoute);
+
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));

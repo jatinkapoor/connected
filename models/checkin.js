@@ -1,5 +1,3 @@
-// this schema is used for creating new posts in the news feed
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

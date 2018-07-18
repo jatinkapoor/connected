@@ -1,9 +1,9 @@
-const db = require("../models");
+const Messages = require('../models/messages');
 
 // Defining methods for the MessagesController
 module.exports = {
     findAll: function (req, res) {
-        db.Messages
+        Messages
             .find(req.query)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
@@ -12,13 +12,13 @@ module.exports = {
             const message = {
             message: req.body.message
             }
-        db.Messages
+        Messages
         .create(message)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
     remove: function (req, res) {
-        db.Messages
+        Messages
             .findById({ _id: req.params.id })
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
