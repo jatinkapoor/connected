@@ -1,11 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import { Grid, GridCell, GridInner } from 'rmwc/Grid';
 import NavBar from '../../components/UI/NavBar/NavBar';
 import "./CheckInFeed.css";
 
 class CheckInFeed extends Component {
 	state = {
-		usersCheckedIn=[]
+		usersCheckedIn:[]
 	};
 
 	componentDidMount = () => {
