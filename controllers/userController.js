@@ -1,7 +1,9 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+const db = require('../models');
 const User = require('../models/user');
+const Group = require('../models/group');
 
 module.exports = {
 
@@ -98,5 +100,28 @@ module.exports = {
         error: err
       });
     });
+  },
+
+  get_users: (req, res) => {
+    console.log()
+    const userId = req.userData.userId;
+    Group.find({ users: userId })
+      .exec()
+      .then(groups => {
+        const userSet = new Set();
+        groups.map(group => {
+          group.users.map(user => {
+            userSet.add(user.toString());
+          });
+        });
+        const uniqUsers = [...userSet];
+
+        User.find({ _id: { $in: uniqUsers } }).then(users => {
+          res.status(200).json({
+            users: users
+          });
+        });
+    });
   }
+
 }
