@@ -1,4 +1,7 @@
 module.exports = {
   User: require("./user"),
-  Messages: require("/.messages")
+  Group: require("./group"),
+  Message: require('./messages'),
+  Post: require('./post'),
+  Comment: require('./comment')
 };

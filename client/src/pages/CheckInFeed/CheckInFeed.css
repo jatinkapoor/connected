@@ -1,0 +1,9 @@
+.grid {
+    margin-top: 50px;
+}
+
+.checked-in-feed-card {
+    padding: 4px;
+    line-height: 20px;
+    font-size: 1.5em;
+}
