@@ -1,14 +1,25 @@
 .my-card {
   width: 100%;
   height: 100%;
-  margin-top: 50px;
+  margin-top: 30%;
+  font-size-adjust: inherit;
 }
 
-.form-section {
-  margin-top: 50px;
+
+@media screen and (min-width: 840px) {
+  .my-card {
+    width: 400px;
+    height: 100%;
+    margin-top: 50%;
+    font-size-adjust: inherit;
+  }
 }
 
-.signIn-button {
-  margin-top: 20px;
-  margin-bottom: 20px;
+@media screen and (min-width: 1000px) {
+  .my-card {
+    width: 100%;
+    height: 100%;
+    margin-top: 20%;
+    font-size-adjust: inherit;
+  }
 }

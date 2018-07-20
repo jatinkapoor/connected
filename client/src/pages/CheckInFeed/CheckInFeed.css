@@ -1,0 +1,33 @@
+.grid {
+    margin-top: 50px;
+}
+
+.place-holder {
+    margin-top: 50px;
+}
+
+.checked-in-feed-card {
+    padding: 4px;
+    line-height: 20px;
+    font-size: 1.5em;
+}
+
+.place-holder-checked-in-feed-card {
+    padding: 4px;
+    line-height: 30px;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: red;
+}
+
+.photo {
+    color: black;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+}
+
+.name-holder {
+    margin-left: 15%;
+}

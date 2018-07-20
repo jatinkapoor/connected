@@ -12,3 +12,19 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.btn {
+  margin-left: 30%;
+}
+
+@media screen and (min-width: 600px) {
+  .btn {
+    margin-left: 35%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    margin-left: 26%;
+  }
+}
