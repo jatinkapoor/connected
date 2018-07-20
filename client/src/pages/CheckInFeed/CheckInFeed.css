@@ -22,7 +22,7 @@
 
 .photo {
     color: black;
-    position: absolute;
+    position: fixed;
     height: 200px;
     width: 200px;
     margin: 5px;
@@ -30,4 +30,34 @@
 
 .name-holder {
     margin-left: 15%;
+}
+
+@media (max-width: 375px) {
+    .name-holder {
+        margin-left: 36%;
+    }
+}
+
+@media (max-width: 411px) {
+    .name-holder {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 414px) {
+    .name-holder {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 768px) {
+    .name-holder{
+        margin-left: 17%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .name-holder {
+        margin-left: 12%;
+    }
 }
