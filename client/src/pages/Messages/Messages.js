@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Grid, Button, Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import "./style.css"
+import NavBar from '../../components/UI/NavBar/NavBar';
 
 
 const btnStyle = {
@@ -107,6 +108,7 @@ class Messages extends Component {
 
         return (
             <div className="mycontainer" >
+            <NavBar />
             <Grid>
                 <Row>
                     <Col>
