@@ -48,6 +48,13 @@ const vline = {
     marginBottom: "0",
 }
 
+const navPlace = {
+    top: "0",
+    position: "relative",
+    left: "0",
+    width: "100%",
+}
+
 
 class Messages extends Component {
     state = {
@@ -107,8 +114,10 @@ class Messages extends Component {
 
 
         return (
+   
+
             <div className="mycontainer" >
-            <NavBar />
+            <NavBar style={navPlace} />
             <Grid>
                 <Row>
                     <Col>
