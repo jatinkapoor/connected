@@ -9,10 +9,14 @@
 }
 
 
-html { 
+/* html { 
   background: url(./shape-connect2.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+} */
+
+.mdc-top-app-bar {
+  position: relative;
 }
