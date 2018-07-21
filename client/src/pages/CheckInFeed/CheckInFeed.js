@@ -17,16 +17,16 @@ class CheckInFeed extends Component {
 	};
 
 	componentDidMount = () => {
-		//this.loadCheckedInFeed();
+		this.loadCheckedInFeed();
 	}
 
-	// loadCheckedInFeed = () => {
-	// 	API.something()
-	// 	.then(res => {
-	// 		console.log();
-	// 		this.setState({});
-	// 	}).catch(err => console.log(err));
-	// };
+	loadCheckedInFeed = () => {
+		API.getGroupMembers()
+		.then(res => {
+			console.log();
+			this.setState({usersCheckedIn: res.data.response.docs, firstName: "", lastName: "", date: ""});
+		}).catch(err => console.log(err));
+	};
 
 	render() {
 		return (
