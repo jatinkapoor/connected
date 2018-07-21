@@ -10,6 +10,7 @@ const userRoute = require('./routes/user');
 const messageRoute = require('./routes/message');
 const groupRoute = require('./routes/group');
 const postsRoute = require('./routes/posts');
+const BrowserRouter = require('react-router-dom').BrowserRouter;
 
 const PORT = process.env.PORT || 3001;
 const app = express();
