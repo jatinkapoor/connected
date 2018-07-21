@@ -31,6 +31,9 @@ const NavBar = (props) => {
             <TopAppBarTitle>
               <Link to={"/checkin"}>Check In</Link>
             </TopAppBarTitle>
+            <TopAppBarTitle>
+              <Link to={"/about"}>About</Link>
+            </TopAppBarTitle>
           </TopAppBarSection>
         </TopAppBarRow>
       </TopAppBar>
