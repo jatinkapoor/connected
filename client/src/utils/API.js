@@ -13,5 +13,8 @@ export default {
     saveMessages: function (messagesData) {
         console.log("messageData ", messagesData);
         return axios.post("/api/message", messagesData);
+    },
+    getGroupMembers: function () {
+        return axios.get("/api/groups")
     }
 };
