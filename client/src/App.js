@@ -3,6 +3,16 @@ import Home from './containers/Home/Home';
 import Auth from './containers/Auth/Auth';
 //import Messages from './pages/Messages/Messages';
 import About from './pages/About';
+<<<<<<< HEAD
+// import {Router, Route} from 'react-router-dom'
+class App extends Component {
+  render() {
+    return (
+      <div>
+      
+        <About />
+      </div>
+=======
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Messages from './pages/Messages/index';
 import CheckInFeed from './pages/CheckInFeed/index';
@@ -20,6 +30,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+>>>>>>> master
     );
   }
 }

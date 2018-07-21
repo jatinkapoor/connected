@@ -2,22 +2,17 @@ import React, { Component } from 'react';
 import { Grid, GridCell } from 'rmwc/Grid';
 import NavBar from '../../components/UI/NavBar/NavBar';
 import './about.css';
+import AboutComp from '../../components/UI/About/AboutComp';
+
 class About extends Component {
     render() {
         return(
-            <div>
+            <div> 
                 <NavBar />
-                <Grid >
-                    <GridCell phone="0" align="middle" tablet="1" desktop="4"> 
-                        About
-                    </GridCell>
-                </Grid>
-                    <h1 className="about">About</h1>
+                <AboutComp />
             </div>
-            // look into typography
-        )
+            )
+        }
     }
-}
 
-export default About;
-
+export default About; 

@@ -1,4 +1,15 @@
 
+
+
+.about-page {
+    background-image: url(about-image.jpg);
+    padding-top: 10%;
+    padding-bottom: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
 .about {
-    margin-top: 10%;
+    text-align: center;
 }
