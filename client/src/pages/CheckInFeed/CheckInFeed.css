@@ -2,8 +2,62 @@
     margin-top: 50px;
 }
 
+.place-holder {
+    margin-top: 50px;
+}
+
 .checked-in-feed-card {
     padding: 4px;
     line-height: 20px;
     font-size: 1.5em;
+}
+
+.place-holder-checked-in-feed-card {
+    padding: 4px;
+    line-height: 30px;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: red;
+}
+
+.photo {
+    color: black;
+    position: fixed;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+}
+
+.name-holder {
+    margin-left: 15%;
+}
+
+@media (max-width: 375px) {
+    .name-holder {
+        margin-left: 36%;
+    }
+}
+
+@media (max-width: 411px) {
+    .name-holder {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 414px) {
+    .name-holder {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 768px) {
+    .name-holder{
+        margin-left: 17%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .name-holder {
+        margin-left: 12%;
+    }
 }

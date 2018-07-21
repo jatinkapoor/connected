@@ -1,51 +1,77 @@
 import React, { Component } from "react";
-import { Grid, GridCell, GridInner } from 'rmwc/Grid';
+import { Grid, GridCell } from 'rmwc/Grid';
 import { Card } from 'rmwc/Card';
 import { Elevation } from 'rmwc/Elevation';
 import NavBar from '../../components/UI/NavBar/NavBar';
+import { Typography } from 'rmwc/Typography';
+import { ListDivider } from 'rmwc/List';
+import API from "../../utils/API";
 import "./CheckInFeed.css";
 
 class CheckInFeed extends Component {
 	state = {
-		usersCheckedIn: []
+		usersCheckedIn: [],
+		firstName: "",
+		lastName: "",
+		date: ""
 	};
 
 	componentDidMount = () => {
-		this.loadCheckedInFeed();
+		//this.loadCheckedInFeed();
 	}
 
-	loadCheckedInFeed = () => {
-
-	}
+	// loadCheckedInFeed = () => {
+	// 	API.something()
+	// 	.then(res => {
+	// 		console.log();
+	// 		this.setState({});
+	// 	}).catch(err => console.log(err));
+	// };
 
 	render() {
 		return (
 			<div>
 				<NavBar />
-				<Grid >
-					<GridCell className="grid" span="12">
+				{this.state.usersCheckedIn.length ? (
+					<Grid>
+						{this.state.usersCheckedIn.map(checkedInUser => (
+							<GridCell className="grid" span="12">
 								<Elevation z={11}>
 									<Card className="checked-in-feed-card">
-										Firstname lastname: status/lastcheckin awaymessage
-								</Card>
+									<img src="#" alt="Userpic" className="photo" />
+										<Typography
+										use="headline4"
+										className="name-holder"
+										>
+										{checkedInUser.firstName}
+										{checkedInUser.lastName}
+										</Typography>
+										<ListDivider />
+										{checkedInUser.date}
+									</Card>
 								</Elevation>
-						{	/*				{this.state.usersCheckedIn.map(checkedInUser => (
-						<GridCell span="12">
-						<GridInner>
-							<GridCell span="4">Hello
-							{checkedInUser.firstName}
 							</GridCell>
-							<GridCell span="4">World
-							{checkedInUser.lastName}
+						))}
+					</Grid>
+				) : (
+						<Grid>
+							<GridCell className="place-holder" span="12">
+								<Elevation z={11}>
+									<Card className="place-holder-checked-in-feed-card">
+									<img src="#" alt="Userpic" className="photo" />
+									<Typography
+									use="headline4"
+									className="name-holder"
+									>
+										Please remain calm.
+										</Typography>
+										<ListDivider />
+										We seem to be experiencing some technical difficulties.
+										</Card>
+								</Elevation>
 							</GridCell>
-							<GridCell span="4">Message
-							{checkedInUser.date}
-							</GridCell>
-						</GridInner>
-						</GridCell>
-			))} */}
-					</GridCell>
-				</Grid>
+						</Grid>
+					)}
 			</div>
 		);
 

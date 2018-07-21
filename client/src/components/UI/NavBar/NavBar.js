@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   TopAppBar,
   TopAppBarRow,
@@ -15,10 +16,21 @@ const NavBar = (props) => {
 
   return (
     <Elevation z={11}>
-      <TopAppBar fixed className="nav">
+      <TopAppBar>
         <TopAppBarRow>
           <TopAppBarSection alignStart>
             <TopAppBarTitle>Connected</TopAppBarTitle>
+          </TopAppBarSection>
+          <TopAppBarSection alignEnd>
+            <TopAppBarTitle>
+              <Link to={"/"}>Home</Link>
+            </TopAppBarTitle>
+            <TopAppBarTitle>
+              <Link to={"/login"}>Login/Register</Link>
+            </TopAppBarTitle>
+            <TopAppBarTitle>
+              <Link to={"/checkin"}>Check In</Link>
+            </TopAppBarTitle>
           </TopAppBarSection>
         </TopAppBarRow>
       </TopAppBar>
