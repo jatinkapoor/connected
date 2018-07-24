@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import InputText from '../../../components/UI/InputText/InputText';
 import { GridCell, GridInner } from 'rmwc/Grid';
 import MyButton from '../../../components/UI/Button/Button';
+import { Link } from 'react-router-dom';
+import { Typography } from 'rmwc/Typography';
 import './Registration.css';
 
 
@@ -93,6 +95,9 @@ class Registration extends Component {
           <GridInner className="signIn-button">
             <GridCell desktop="1"> </GridCell>
             <GridCell tablet="8" phone="4" desktop="11">
+            <Typography> By clicking "Register" I agree to the <Link to={"/terms"}>Terms and Conditions</Link> </Typography>
+            <br />
+            <br />
               <MyButton className="btn" name="REGISTER" use="send" />
             </GridCell>
             <GridCell small="0"></GridCell>

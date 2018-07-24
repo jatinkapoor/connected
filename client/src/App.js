@@ -6,6 +6,7 @@ import About from './pages/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Messages from './pages/Messages/index';
 import CheckInFeed from './pages/CheckInFeed/index';
+import TermsOfService from './pages/TermsOfService/index';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path="/login" exact component={Auth} />
             <Route exact path="/checkin" exact component={CheckInFeed} />
             <Route exact path="/about" exact component={About} />
+            <Route exact path="/terms" exact component={TermsOfService} />
           </Switch>
         </div>
       </Router>
