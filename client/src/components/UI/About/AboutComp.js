@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, GridCell } from 'rmwc/Grid';
 import connected from './connected.jpg';
+import group from "./group.jpg";
 
 class AboutComp extends React.Component {
     render() {
@@ -25,6 +26,7 @@ class AboutComp extends React.Component {
                 </ul>
                 
                 <img src={connected} className="connect-img" />
+                <img src={group} className="connect-img" />
             </div>
         )
     }
