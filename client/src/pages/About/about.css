@@ -9,7 +9,6 @@
     padding-right: 5%;
 }
 
-
 .about {
     text-align: center;
 }
@@ -20,4 +19,12 @@
     margin-right: auto;
     height: 35%;
     width: 35%;
+}
+
+.line1 {
+    text-align: center;
+}
+
+.card {
+    padding-left: 15%;
 }
