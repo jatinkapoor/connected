@@ -2,7 +2,8 @@
 
 
 .about-page {
-    background-image: url(about-image.jpg);
+    /* background-image: url(about-image.jpg); */
+    background-color: greenyellow;
     padding-top: 10%;
     padding-bottom: 50%;
     padding-left: 5%;

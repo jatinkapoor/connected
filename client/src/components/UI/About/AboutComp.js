@@ -13,6 +13,7 @@ import {
     ListItemGraphic,
     ListItemMeta
    } from 'rmwc/List';
+import group from "./group.jpg";
 
 class AboutComp extends React.Component {
     render() {
@@ -77,6 +78,7 @@ class AboutComp extends React.Component {
 
                 </Card>
                 </Elevation>
+                <img src={group} className="connect-img" />
             </div>
         )
     }

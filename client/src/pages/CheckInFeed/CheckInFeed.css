@@ -32,15 +32,63 @@
     margin-left: 15%;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1366px) {
     .name-holder {
-        margin-left: 36%;
+        margin-left: 9%;
     }
 }
 
-@media (max-width: 411px) {
+@media (max-width: 1024px) {
     .name-holder {
-        margin-left: 32%;
+        margin-left: 12%;
+    }
+}
+
+@media (max-width: 823px) {
+    .name-holder {
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 812px) {
+    .name-holder {
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .name-holder {
+        margin-left: 16%;
+    }
+}
+
+@media (max-width: 736px) {
+    .name-holder {
+        margin-left: 17%;
+    }
+}
+
+@media (max-width: 731px) {
+    .name-holder {
+        margin-left: 17%;
+    }
+}
+
+@media (max-width: 667px) {
+    .name-holder {
+        margin-left: 19%;
+    }
+}
+
+@media (max-width: 640px) {
+    .name-holder{
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 568px) {
+    .name-holder {
+        margin-left: 22%;
     }
 }
 
@@ -50,14 +98,26 @@
     }
 }
 
-@media (max-width: 768px) {
-    .name-holder{
-        margin-left: 17%;
+@media (max-width: 411px) {
+    .name-holder {
+        margin-left: 32%;
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 375px) {
     .name-holder {
-        margin-left: 12%;
+        margin-left: 36%;
+    }
+}
+
+@media (max-width: 360px) {
+    .name-holder {
+        margin-left: 35%;
+    }
+}
+
+@media (max-width: 320px) {
+    .name-holder {
+        margin-left: 41%;
     }
 }
