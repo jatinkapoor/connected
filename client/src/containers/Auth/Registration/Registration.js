@@ -95,7 +95,7 @@ class Registration extends Component {
           <GridInner className="signIn-button">
             <GridCell desktop="1"> </GridCell>
             <GridCell tablet="8" phone="4" desktop="11">
-            <Typography> By clicking "Register" I agree to the <Link to={"/terms"}>Terms and Conditions</Link> </Typography>
+            <Typography use="overline"> By clicking "Register" I agree to the <Link to={"/terms"}>Terms and Conditions</Link> </Typography>
             <br />
             <br />
               <MyButton className="btn" name="REGISTER" use="send" />
