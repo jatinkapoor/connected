@@ -15,6 +15,6 @@ export default {
         return axios.post("/api/message", messagesData);
     },
     getGroupMembers: function () {
-        return axios.get("/api/groups")
+        return axios.get("/")
     }
 };
