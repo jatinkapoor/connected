@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, GridCell } from 'rmwc/Grid';
+import connected from './connected.jpg';
 
 class AboutComp extends React.Component {
     render() {
@@ -8,10 +9,11 @@ class AboutComp extends React.Component {
                 <h1 className="about">About</h1>
                 <h2>Our Motto: Stay Connected</h2>
                 <h3>Thanks for visiting our website. In addition to helping people stay connected with their friends and family, 
-                    we help people establish and build new relationships. Our innovative authentication, check-in, newsfeed, 
-                    and private messaging features have helped many people stay connected.</h3>
+                    we help people establish and build new relationships. Our innovative authentication, check-in, and newsfeed
+                    and features have helped many people stay connected.</h3>
                 <ul>
                     Here are some of the technologies we leveraged to build this website: 
+                    <br />
                     <li>React</li> 
                     <li>React Bootstrap</li>
                     <li>React-Router-DOM</li>
@@ -21,6 +23,8 @@ class AboutComp extends React.Component {
                     <li>Axios</li>
                     <li>Node</li>
                 </ul>
+                
+                <img src={connected} className="connect-img" />
             </div>
         )
     }
