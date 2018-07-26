@@ -24,13 +24,18 @@ class AboutComp extends React.Component {
                 <Typography use="headline2" className="line1">About</Typography>
                 
                 <div className="card">
-                    <Typography use="headline4">Our Motto: Stay Connected</Typography>
-                    <br />
-                    <Typography use="headline6">Thanks for visiting our website. In addition to helping people stay connected with their friends and family, 
+                
+                        <Typography use="headline4">Our Motto: Stay Connected</Typography>
+
+                        <br />
+                        <br />
+                        <Typography use="headline6">Thanks for visiting our website. In addition to helping people stay connected with their friends and family, 
                         we help people establish and build new relationships. Our innovative authentication, check-in, and newsfeed
-                        and features have helped many people stay connected.</Typography>
-                    <br />
+                        features have helped many people stay connected.</Typography>
+                        <br />
+                        <br />
                     <Typography use="heading6">Here are some of the technologies we leveraged to build this website: </Typography>
+                    <br />
                         <List>
                             <ListItem>
                             <ListItemGraphic>star_border</ListItemGraphic>    
