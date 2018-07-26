@@ -3,8 +3,8 @@
 
 .about-page {
     /* background-image: url(about-image.jpg); */
-    /* background-color: greenyellow; */
-    background-color: gainsboro;
+    background-color: mediumspringgreen;
+    /* background-color: gainsboro; */
     padding-top: 10%;
     padding-bottom: 50%;
     padding-left: 5%;
@@ -21,6 +21,7 @@
     margin-right: auto;
     height: 35%;
     width: 35%;
+    margin-bottom: 12px;
 }
 
 .line1 {
