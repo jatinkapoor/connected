@@ -21,10 +21,10 @@ class CheckInFeed extends Component {
 	}
 
 	loadCheckedInFeed = () => {
-		API.getGroupMembers()
+		API.getGroupMembers(this.state.firstName, this.state.lastName, this.state.date)
 		.then(res => {
 			console.log();
-			this.setState({usersCheckedIn: res.data.response.docs, firstName: "", lastName: "", date: ""});
+			this.setState({usersCheckedIn: res.data.response, firstName: "", lastName: "", date: ""});
 		}).catch(err => console.log(err));
 	};
 
@@ -32,7 +32,7 @@ class CheckInFeed extends Component {
 		return (
 			<div>
 				<NavBar />
-				{this.state.usersCheckedIn.length ? (
+				{this.state.usersCheckedIn ? (
 					<Grid>
 						{this.state.usersCheckedIn.map(checkedInUser => (
 							<GridCell className="grid" span="12">
