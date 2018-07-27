@@ -29,11 +29,12 @@ module.exports = {
               userId: user[0]._id,
               firstName: user[0].firstName,
               email: user[0].email
-            }, process.env.JWT_KEY, {
-                expiresIn: '24h',
+            }, "secret", {
+                expiresIn: '1h',
               })
             return res.status(200).json({
               message: 'Auth Successful',
+              userId: user[0]._id,
               token: jwtToken
             });
           }
@@ -57,7 +58,6 @@ module.exports = {
       } else {
         console.log('in here 2');
         bcrypt.hash(req.body.password, 10, (err, hash) => {
-          console.log('err', err);
           console.log(hash);
           if (err) {
             return res.status(500).json({
@@ -75,9 +75,11 @@ module.exports = {
             user.save().then(result => {
               console.log(result);
               res.status(201).json({
-                message: 'User Created'
+                message: 'User Created',
+                user: result
               });
             }).catch(err => {
+              console.log(result);
               res.status(500).json({
                 error: err
               });
@@ -103,25 +105,43 @@ module.exports = {
   },
 
   get_users: (req, res) => {
-    console.log()
     const userId = req.userData.userId;
     Group.find({ users: userId })
       .exec()
       .then(groups => {
-        const userSet = new Set();
-        groups.map(group => {
-          group.users.map(user => {
-            userSet.add(user.toString());
+        if (groups.length > 0) {
+          const userSet = new Set();
+          groups.map(group => {
+            group.users.map(user => {
+              userSet.add(user.toString());
+            });
           });
-        });
-        const uniqUsers = [...userSet];
-
-        User.find({ _id: { $in: uniqUsers } }).then(users => {
-          res.status(200).json({
-            users: users
+          const uniqUsers = [...userSet];
+          User.find({ _id: { $in: uniqUsers } }).then(users => {
+            res.status(200).json({
+              users: users
+            });
           });
-        });
+        } else {
+          User.find({_id: userId}).then(user => {
+            res.status(200).json({
+              users: user
+            });
+          })
+        }
     });
-  }
+  },
 
+  get_user: (req, res) => {
+    const userEmail = req.userData.email;
+    User.find({email: userEmail}).then(user => {
+      res.status(200).json({
+        user
+      });
+    }).catch(error => {
+      res.status(500).json({
+        error: error
+      });
+    })
+  }
 }

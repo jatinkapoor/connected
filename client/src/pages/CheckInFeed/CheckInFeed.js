@@ -31,7 +31,6 @@ class CheckInFeed extends Component {
 	render() {
 		return (
 			<div>
-				<NavBar />
 				{this.state.usersCheckedIn ? (
 					<Grid>
 						{this.state.usersCheckedIn.map(checkedInUser => (

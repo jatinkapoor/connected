@@ -13,4 +13,6 @@ router.delete('/:userid', userController.delete_user);
 
 router.get('/', checkAuth, userController.get_users);
 
+router.get('/user', checkAuth, userController.get_user);
+
 module.exports = router;

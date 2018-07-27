@@ -12,10 +12,6 @@ import { Elevation } from 'rmwc/Elevation';
 
 import './NavBar.css';
 
-const title  = {
-  color: "white",
-}
-
 const NavBar = (props) => {
 
   return (
@@ -27,16 +23,13 @@ const NavBar = (props) => {
           </TopAppBarSection>
           <TopAppBarSection alignEnd>
             <TopAppBarTitle>
-              <Link to={"/"}><span style={title}>Home</span></Link>
+              <Link to={"/"}>Home</Link>
             </TopAppBarTitle>
             <TopAppBarTitle>
-              <Link to={"/login"}><span style={title}>Login/Register</span></Link>
+              <Link to={"/login"}>Login/Register</Link>
             </TopAppBarTitle>
             <TopAppBarTitle>
-                <Link to={"/checkin"}><span style={title}>Check In</span></Link>
-            </TopAppBarTitle>
-            <TopAppBarTitle>
-                  <Link to={"/about"}><span style={title}>About</span></Link>
+              <Link to={"/checkin"}>Check In</Link>
             </TopAppBarTitle>
           </TopAppBarSection>
         </TopAppBarRow>

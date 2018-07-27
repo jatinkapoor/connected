@@ -8,7 +8,6 @@ class TermsOfService extends Component {
   render() {
     return (
       <div>
-          <NavBar/>
           <TermsComp/>
         </div>
     )

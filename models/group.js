@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const GroupSchema = new Schema({
     groupName: { type: String, required: true },
-    createdBy: Schema.Types.ObjectId,
+    createdBy: { type: Schema.Types.ObjectId, required: true },
+    description: {type: String, required: true},
+    createdByName: {type: String, required: true},
     users: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
