@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
     const decoded = jwt.verify(token, "secret");
     req.userData = decoded;
     console.log('in user auth');
+    console.log(req.body);
     next();
   } catch(error) {
     return res.status(401).json({

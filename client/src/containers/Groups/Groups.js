@@ -17,7 +17,8 @@ import IconButton from '@material-ui/core/IconButton';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
-import { createGroup, getGroups, GET_GROUP_SUCCESS } from '../../actions/groups_actions';
+import { createGroup, getGroups, addUser ,GET_GROUP_SUCCESS } from '../../actions/groups_actions';
+import { findUser } from '../../actions/user_actions';
 import _ from 'lodash';
 import MyCard from '../../components/UI/Card/Card';
 import red from '@material-ui/core/colors/red';
@@ -80,35 +81,28 @@ class GroupsPage extends Component {
     this.props.createGroup(values);
   }
 
+  addUser = (values) => {
+    this.props.addUser(values);
+  }
 
-  renderPeople = (users, groupName) => {
+
+  renderPeople = (users, group) => {
     const { classes } = this.props;
     const { handleSubmit } = this.props;
     return users.map(user => {
 
       return (
-        <Card className={classes.card}>
-          <CardContent>
-            <ExpansionPanel className={classes.createGroupShowHide}>
-              <ExpansionPanelSummary expandIcon={
-                <Tooltip title="Add a Contact">
-                  <Button variant="fab" size="small" color="primary" aria-label="Add" className={classes.fab}>
-                    <AddIcon />
-                  </Button>
-                </Tooltip>
-              }>
+              <div key={group._id}>
                 <Typography gutterBottom variant="headline" component="h2">
-                  {groupName}
+                {group.groupName}
                   </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <form onSubmit={handleSubmit(this.onSubmit)}>
+                  <form onSubmit={handleSubmit(this.addUser)}>
                   <Grid container
                     justify="center"
                     spacing={0}>
                     <Field
                       label="Search For User"
-                      name="groupName"
+                      name="email"
                       type="text"
                       multiline
                       rowsMax="4"
@@ -126,10 +120,7 @@ class GroupsPage extends Component {
                     </Tooltip>
                   </Grid>
                 </form>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
-          </CardContent>
-        </Card>
+            </div>
       )
     })
   }
@@ -138,13 +129,19 @@ class GroupsPage extends Component {
 
     if (this.props.groups.type === 'GET_GROUP_SUCCESS') {
 
-      return this.props.groups.groups.map(group => {
-        return (
-            <div>
-              {this.renderPeople(group.users, group.groupName)}
-            </div>
-        );
-      })
+      // return this.props.groups.groups.map(group => {
+      //   return (
+      //     <React.Fragment>
+      //         {this.renderPeople(group.users, group)}
+      //     </React.Fragment>
+      //   );
+      // })
+
+      if (this.props.groups.groups.length > 0) {
+      
+      }
+
+
     }
   }
 
@@ -233,7 +230,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ createGroup, getGroups }, dispatch)
+  return bindActionCreators({ createGroup, getGroups, addUser }, dispatch)
 }
 
 

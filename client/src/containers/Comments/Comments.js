@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import AddIcon from '@material-ui/icons/Add';
+import BackArrow from '@material-ui/icons/ArrowBackIosRounded';
+import { Link } from 'react-router-dom';
+import Home from '../Home/Home';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -62,7 +65,10 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: 500,
-  }
+  },
+  // button: {
+  //   margin: theme.spacing.unit,
+  // },
 });
 
 class CommentsPage extends Component {
@@ -79,14 +85,28 @@ class CommentsPage extends Component {
     const { id } = this.props.match.params;
     if (this.props.post[id]) {
       return (
-        <Card
-            className={classes.comment}>
-            <CardContent>
-              <Typography className={classes.title} color="textSecondary">
-              {this.props.post[id].post}
-              </Typography>
-            </CardContent>
-          </Card>
+        <div>
+          <Card
+              className={classes.comment}>
+            
+              <Grid container
+                justify="flex-start"
+                spacing={0}>
+                <Link to="/">
+              <Tooltip title="Back to Posts">  
+              <Button variant="fab" color="secondary">
+                <BackArrow />
+              </Button>
+              </Tooltip>
+              </Link>
+            </Grid> 
+              <CardContent>
+              <Typography variant="display1" color="textSecondary">
+                  {this.props.post[id].post}
+                </Typography>
+              </CardContent>
+            </Card>
+        </div>  
       )
     }
   }

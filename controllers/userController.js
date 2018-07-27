@@ -133,8 +133,10 @@ module.exports = {
   },
 
   get_user: (req, res) => {
-    const userEmail = req.userData.email;
+    const userEmail = req.body.email;
+
     User.find({email: userEmail}).then(user => {
+
       res.status(200).json({
         user
       });
@@ -143,5 +145,25 @@ module.exports = {
         error: error
       });
     })
-  }
+  },
+
+  // get_user_by_email: (req, res) => {
+
+  //   const email = req.body.email;
+  //   User.find({ email: email }).then(user => {
+  //     res.status(200).json({
+  //       user
+  //     });   
+  //   }).catch(error => {
+  //     res.status(500).json({
+  //       error: error
+  //     });
+  //   })
+
+  // }
+
+
+
+
+
 }

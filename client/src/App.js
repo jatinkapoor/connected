@@ -3,7 +3,7 @@ import Home from './containers/Home/Home';
 //import Messages from './pages/Messages/Messages';
 import About from './pages/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CheckInFeed from './pages/CheckInFeed/index';
+import CheckIns from './containers/CheckIns/CheckIns';
 import TermsOfService from './pages/TermsOfService/index';
 
 import Comments from './containers/Comments/Comments';
@@ -16,6 +16,7 @@ import Toolbar from './components/UI/ToolBar/ToolBar';
 import SideDrawer from './components/UI/ToolBar/SideDrawer/SideDrawer';
 import Backdrop from './components/UI/Backdrop/Backdrop';
 import Groups from './containers/Groups/Groups';
+import MenuAppBar from './components/UI/AppBar/AppBar';
 
 class App extends Component {
 
@@ -25,6 +26,8 @@ class App extends Component {
     };
 
     drawerTogglerClickHandler = () => {
+
+      console.log("in here click");
       this.setState((prevState) => {
         return {sideDrawerOpen: !prevState.sideDrawerOpen};
       });
@@ -45,7 +48,7 @@ class App extends Component {
       <Router>
       <div style={{ height: '100%' }}>
 
-        <Toolbar
+          <Toolbar
           drawerClickHandler={this.drawerTogglerClickHandler}
         />
         <SideDrawer show={this.state.sideDrawerOpen}/>
@@ -58,7 +61,7 @@ class App extends Component {
             <Route exact path="/register" exact component={Registration} />
             <Route exact path="/about" exact component={About} />
             <Route exact path="/terms" exact component={TermsOfService} />
-            <PrivateRoute exact path="/checkin" exact component={CheckInFeed} />
+              <PrivateRoute exact path="/checkin" exact component={CheckIns} />
             <PrivateRoute exact path="/groups" exact component={Groups} />
             <PrivateRoute exact path="/posts/:id" exact component={Comments} />
             <PrivateRoute exact path="/about" exact component={About} />

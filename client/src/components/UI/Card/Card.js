@@ -28,6 +28,8 @@ const styles = theme => ({
   },
   avatar: {
     backgroundColor: red[500],
+    width: 60,
+    height: 60,
   },
   mygrid: {
     direction: 'row',
@@ -62,7 +64,7 @@ class RecipeReviewCard extends React.Component {
             subheader="September 14, 2016"
           />
           <CardContent>
-            <Typography component="p">
+            <Typography variant="title" gutterBottom>
               { this.props.post }
             </Typography>
           </CardContent>

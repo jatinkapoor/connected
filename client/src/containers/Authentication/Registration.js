@@ -83,6 +83,7 @@ class Registration extends Component {
                         label="Password"
                         name="password"
                         icon="lock"
+                        type="password"
                         component={this.renderField} />
                     </div>
                   </div>
@@ -92,6 +93,7 @@ class Registration extends Component {
                         label="Confirm Password"
                         name="confirmPassword"
                         icon="lock"
+                        type="password"
                         component={this.renderField} />
                     </div>
                   </div>

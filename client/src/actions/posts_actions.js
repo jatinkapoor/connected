@@ -70,7 +70,7 @@ export const getPosts = (history) => {
         message: 'Get posts success',
         post: result.data
       });
-      dispatch(success('Posts Successfully Fetched'));
+      //dispatch(success('Posts Successfully Fetched'));
     }).catch(error => {
       dispatch({
         type: GET_ALL_POSTS_FAILURE,
@@ -81,7 +81,6 @@ export const getPosts = (history) => {
     });
   }
 }
-
 
 export const getPost = (id, history) => {
 

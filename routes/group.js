@@ -68,24 +68,60 @@ router.post('/', checkAuth, (req, res) => {
   });
 });
 
-router.put('/addUser', (req, res) => {
+router.put('/addUser', checkAuth ,(req, res) => {
 
-  const userId = req.body.userId;
-  const groupId = req.body.groupId;
+  const userEmail = req.body.email;
+  console.log(userEmail);
+  
 
-  Group.findOneAndUpdate(
-    { _id: groupId },
-    { $push: { users: userId } },
-    { new: true })
-  .then(group => {
+
+  User.findOne({ email: userEmail }).then(user => {
+    console.log(user);
+    if (user.length > 0) {
+      
+  //     Group.findOneAndUpdate(
+  //   { _id: groupId },
+  //   { $push: { users: userId } },
+  //   { new: true })
+  // .then(group => {
+  //   res.status(200).json({
+  //     group: group
+  //   })
+  // }).catch(err => {
+  //   res.status(500).json({
+  //     error: err
+  //   });
+  // });
+    }
     res.status(200).json({
-      group: group
+      user: user
     })
-  }).catch(err => {
+
+  }).catch(error => {
     res.status(500).json({
-      error: err
+      error: error
     });
-  });
+  })
+  
+  
+  
+  
+  // const userId = req.body.userId;
+  // const groupId = req.body.groupId;
+
+  // Group.findOneAndUpdate(
+  //   { _id: groupId },
+  //   { $push: { users: userId } },
+  //   { new: true })
+  // .then(group => {
+  //   res.status(200).json({
+  //     group: group
+  //   })
+  // }).catch(err => {
+  //   res.status(500).json({
+  //     error: err
+  //   });
+  // });
 });
 
 module.exports = router;

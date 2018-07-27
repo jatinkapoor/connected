@@ -1,12 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 
 class Notification extends React.Component {
   state = {
     open: false,
     vertical: 'top',
-    horizontal: 'right',
+    horizontal: 'center',
   };
 
   componentWillReceiveProps(nextProps) {
