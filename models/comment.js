@@ -7,9 +7,17 @@ const CommentSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true
   },
+  createdByName: {
+    type: String,
+    required: true
+  },
   comment: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

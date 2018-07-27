@@ -5,14 +5,13 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const homeRoute = require('./routes/home'); 
+const homeRoute = require('./routes/home');
 const userRoute = require('./routes/user');
 const messageRoute = require('./routes/message');
 
 
 const groupRoute = require('./routes/group');
 const postsRoute = require('./routes/posts');
-const BrowserRouter = require('react-router-dom').BrowserRouter;
 
 
 const PORT = process.env.PORT || 3001;
@@ -39,6 +38,3 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`App listening on ${PORT}`);
 });
-
-
-

@@ -5,12 +5,12 @@ import './InputText.css';
 const InputText = (props) => {
   return (
     <React.Fragment>
-    <TextField 
+    <TextField
       className="text"
       name={props.name}
       type={props.type}
-      fullwidth 
-      withTrailingIcon={<TextFieldIcon use={props.use} />} 
+      fullwidth
+      withTrailingIcon={<TextFieldIcon use={props.use} />}
       value={props.value}
       placeholder={props.placeholder}
       onChange={props.onchange}/>
