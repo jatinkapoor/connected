@@ -24,7 +24,7 @@ class AboutComp extends React.Component {
                 <Typography use="headline2" className="line1">About</Typography>
                 
                 <div className="card">
-                
+                 
                         <Typography use="headline4">Our Motto: Stay Connected</Typography>
 
                         <br />
