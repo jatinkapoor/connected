@@ -79,11 +79,11 @@ class AboutComp extends React.Component {
                             </ListItem>
                         </List>
                 </div>
-                <img src={connected} className="connect-img" />
+                <img src={group} className="connect-img" />
 
                 </Card>
                 </Elevation>
-                <img src={group} className="connect-img" />
+          
             </div>
         )
     }
