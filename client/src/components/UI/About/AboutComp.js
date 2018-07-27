@@ -24,7 +24,7 @@ class AboutComp extends React.Component {
                 <Typography use="headline2" className="line1">About</Typography>
                 
                 <div className="card">
-                 
+                
                         <Typography use="headline4">Our Motto: Stay Connected</Typography>
 
                         <br />
@@ -79,11 +79,12 @@ class AboutComp extends React.Component {
                             </ListItem>
                         </List>
                 </div>
-                <img src={group} className="connect-img" />
-
+                    <img src={group} className="connect-img" />
                 </Card>
                 </Elevation>
-          
+                
+                <p>Copyright &copy; - Team Connected. All rights reserved</p>
+                <p>Privacy Policy | Legal Agreement</p>
             </div>
         )
     }
