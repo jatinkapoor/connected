@@ -20,14 +20,14 @@ import { bindActionCreators } from 'redux';
 import { createPost, getPosts } from '../../actions/posts_actions';
 import _ from 'lodash';
 import MyCard from '../../components/UI/Card/Card';
-import red from '@material-ui/core/colors/red';
+import red from '@material-ui/core/colors/red'
 
 
 
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   card: {
     padding: theme.spacing.unit * 2,
