@@ -27,7 +27,7 @@ import CardComment from '../../components/UI/Card/CardComment';
 import red from '@material-ui/core/colors/red';
 import { createPost, getPosts } from '../../actions/posts_actions';
 import Avatar from '@material-ui/core/Avatar/Avatar';
-// import Avatar from '@material-ui/core/Avatar';
+import grey from '@material-ui/core/colors/red';
 
 
 const styles = theme => ({
@@ -41,15 +41,14 @@ const styles = theme => ({
     width: 800,
     maxWidth: 800,
     minHeight: 800,
-    // backgroundColor: red[500], //
+    // backgroundColor: grey[100], 
   },
   card1: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     width: 800,
     maxWidth: 800,
-    marginBottom: 10,
-    // backgroundColor: red[500], //
+    marginBottom: 10, 
   },
   card2 : {
     width: 800,
@@ -130,7 +129,7 @@ class CommentsPage extends Component {
           return( <div key={comment._id} className="messagepost">
             <Card >
               <CardContent>
-          <Typography avatar="true"
+          <Typography
             variant="button">
             {comment.comment}
             </Typography>
