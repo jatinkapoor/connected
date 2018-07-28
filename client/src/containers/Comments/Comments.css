@@ -1,0 +1,12 @@
+.messagepost{ 
+    margin-left: 10%;
+    width: 80%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: left;
+    /* height: %; */
+    background-color: #dce0e5;
+    
+}

@@ -52,7 +52,8 @@
     "redux-devtools": "^3.4.1",
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "typeface-alegreya-sans": "0.0.54"
   },
   "devDependencies": {
     "concurrently": "^3.6.0"

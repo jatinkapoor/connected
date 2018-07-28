@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Comments.css";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -23,30 +24,40 @@ import { bindActionCreators } from 'redux';
 import {  getPost, createComment } from '../../actions/posts_actions';
 import _ from 'lodash';
 import CardComment from '../../components/UI/Card/CardComment';
-
-
 import red from '@material-ui/core/colors/red';
+import { createPost, getPosts } from '../../actions/posts_actions';
+import Avatar from '@material-ui/core/Avatar/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
+
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1, 
+
   },
   card: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     width: 800,
     maxWidth: 800,
-    minHeight: 800
+    minHeight: 800,
+    // backgroundColor: red[500], //
   },
   card1: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     width: 800,
     maxWidth: 800,
+    marginBottom: 10,
+    // backgroundColor: red[500], //
+  },
+  card2 : {
+    width: 800,
+    maxWidth: 800,
   },
   comment: {
     textAlign: 'center',
-    maxWidth: 800,
+    maxWidth: 800, 
   },
   avatar: {
     backgroundColor: red[500],
@@ -56,7 +67,8 @@ const styles = theme => ({
     paddingTop: '56.25%',
   },
   tooltip: {
-    marginLeft: 20
+    marginLeft: 20,
+    paddingLeft: 200
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,
@@ -64,7 +76,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 500,
+    width: 550,
   },
   // button: {
   //   margin: theme.spacing.unit,
@@ -86,7 +98,7 @@ class CommentsPage extends Component {
     if (this.props.post[id]) {
       return (
         <div>
-          <Card
+          <Card 
               className={classes.comment}>
             
               <Grid container
@@ -115,8 +127,15 @@ class CommentsPage extends Component {
     return _.map(this.props.post, post => {
       if (post.comments) {
         return (post.comments.map(comment => {
-          return( <div key={comment._id}>
+          return( <div key={comment._id} className="messagepost">
+            <Card >
+              <CardContent>
+          <Typography avatar="true"
+            variant="button">
             {comment.comment}
+            </Typography>
+            </CardContent>
+            </Card>
           </div>
           )
       })
