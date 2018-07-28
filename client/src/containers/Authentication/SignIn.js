@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { loginUser } from '../../actions/login_actions';
 import './SignIn.css';
 import { Link } from 'react-router-dom';
+import { Typography } from 'rmwc/Typography';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 
@@ -45,14 +46,6 @@ class SignIn extends Component {
             <form onSubmit={handleSubmit(this.onSubmit)}>
             <Card className=" z-depth-5">
               <CardBody>
-                <Nav className="nav-justified" color="primary">
-                  <NavItem>
-                    <NavLink to="/register">
-                      <Button block >Register</Button>
-                    </NavLink>
-                  </NavItem>
-                </Nav>
-
                 <div className="row">
                   <div className="col-md-12">
                     <Field
@@ -72,7 +65,10 @@ class SignIn extends Component {
                         component={this.renderField} />
                   </div>
                 </div>
-                <Button block type="submit">SignIn</Button>
+                  <div className="row justify-content-md-center">
+                    <Button color="indigo" block type="submit">SignIn</Button>
+                    <Typography use="button"><Link to={"/register"}>Register</Link> </Typography>
+                  </div>
               </CardBody>
             </Card>
             </form>

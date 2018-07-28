@@ -42,15 +42,15 @@ class Registration extends Component {
         <div className="row justify-content-center">
           <div className="col-md-6 align-self-center">
             <form onSubmit={handleSubmit(this.onSubmit)}>
-              <Card>
+              <Card className="registrationCard">
                 <CardBody>
-                  <Nav className="nav-justified" color="primary">
+                  {/* <Nav className="nav-justified" color="primary">
                     <NavItem>
                       <NavLink to="/login">
                         <Button block >Sign In ? </Button>
                       </NavLink>
                     </NavItem>
-                  </Nav>
+                  </Nav> */}
                   <div className="row">
                     <div className="col-md-6">
                       <Field
@@ -106,9 +106,12 @@ class Registration extends Component {
                         component={this.renderField} />
                     </div>
                   </div>
-                  <Button block type="submit">Register</Button>
-                </CardBody>
-                <Typography use="overline"> By clicking "Register" I agree to the <Link to={"/terms"}>Terms and Conditions</Link> </Typography>
+                  <div className="row justify-content-md-center"> 
+                      <Button  color="indigo" block type="submit">Register</Button>
+                      <Typography use="button"><Link to={"/login"}>Login</Link> </Typography> 
+                  </div>
+                  </CardBody>
+                <Typography use="overline"> By clicking "Register" I agree to the <Link to={"/login"}>Terms and Conditions</Link> </Typography>
               </Card>
             </form>
           </div>

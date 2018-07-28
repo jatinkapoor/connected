@@ -5,6 +5,7 @@ import { login } from './login_reducer';
 import { posts } from './posts_reducer';
 import { groups } from './group_reducer';
 import { alert } from './alert_reducer';
+import {users} from './users_reducer';
 
 export default combineReducers({
   registration: registration,
@@ -12,5 +13,6 @@ export default combineReducers({
   login: login,
   posts: posts,
   groups: groups,
+  users: users,
   form: formReducer
 });

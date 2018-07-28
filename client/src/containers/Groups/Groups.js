@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import AddIcon from '@material-ui/icons/Add';
+import AddGroup from '@material-ui/icons/GroupAddOutlined'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -56,14 +57,21 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: 300,
+  },
+  btn: {
+    margin: '20px'
   }
 });
 
 
 class GroupsPage extends Component {
 
+
+  state = {
+    showing: true
+  }
+
   renderField = (field) => {
-    console.log(field);
     return (
       <div>
         <TextField
@@ -77,86 +85,154 @@ class GroupsPage extends Component {
     );
   }
 
-  onSubmit = (values) => {
-    this.props.createGroup(values);
-  }
+ 
 
   addUser = (values) => {
-    this.props.addUser(values);
+  
+    const groupId = this.props.groups.groups[0]._id;
+    this.props.addUser(values, groupId);
   }
 
 
-  renderPeople = (users, group) => {
+  renderPeople = (users) => {
     const { classes } = this.props;
     const { handleSubmit } = this.props;
     return users.map(user => {
-
       return (
-              <div key={group._id}>
-                <Typography gutterBottom variant="headline" component="h2">
-                {group.groupName}
-                  </Typography>
-                  <form onSubmit={handleSubmit(this.addUser)}>
-                  <Grid container
-                    justify="center"
-                    spacing={0}>
-                    <Field
-                      label="Search For User"
-                      name="email"
-                      type="text"
-                      multiline
-                      rowsMax="4"
-                      margin="normal"
-                      className={`${classes.root} ${classes.textField}`}
-                      component={this.renderField} />
-                  </Grid>
-                  <Grid container
-                    justify="center"
-                    spacing={0}>
-                    <Tooltip title="Add Contact">
-                      <IconButton type="submit" size="large">
-                        <SendIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </Grid>
-                </form>
-            </div>
+        <div key={user._id}>
+            <Typography gutterBottom variant="headline" component="h2">
+              {user.firstName}
+              </Typography>
+        </div>
       )
     })
   }
 
   renderGroups = () => {
-
+    const { classes } = this.props;
+    const { handleSubmit } = this.props;
     if (this.props.groups.type === 'GET_GROUP_SUCCESS') {
 
-      // return this.props.groups.groups.map(group => {
-      //   return (
-      //     <React.Fragment>
-      //         {this.renderPeople(group.users, group)}
-      //     </React.Fragment>
-      //   );
-      // })
-
       if (this.props.groups.groups.length > 0) {
-      
+        return (
+          <React.Fragment>
+            <div> {this.props.groups.groups[0].groupName} </div>
+            <form onSubmit={handleSubmit(this.addUser)}>
+              <Grid container
+                justify="center"
+                spacing={0}>
+                <Field
+                  label="Add User"
+                  name="email"
+                  type="text"
+                  multiline
+                  rowsMax="4"
+                  margin="normal"
+                  className={`${classes.root} ${classes.textField}`}
+                  component={this.renderField} />
+              </Grid>
+              <Grid container
+                justify="center"
+                spacing={0}>
+                <Tooltip title="Add Contact">
+                  <IconButton type="submit" size="large">
+                    <SendIcon />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            </form>
+            {this.renderPeople(this.props.groups.groups[0].users)}
+          </React.Fragment>
+        );
       }
-
-
     }
   }
 
+  renderCreateGroup = () => {
+    const { classes } = this.props;
+    const { handleSubmit } = this.props;
 
-  getGroups = () => {
-    this.props.getGroups();
+    if(this.props.groups.groups && this.props.groups.groups.length > 0) {
+      return (<div> </div>)
+    } else {
+      return (
+        <ExpansionPanel>
+          <ExpansionPanelSummary expandIcon={
+            <Tooltip title="Create a Group">
+              <Button variant="fab" size="small" color="primary" aria-label="Add" className={classes.fab}>
+                <AddIcon />
+              </Button>
+            </Tooltip>
+          }>
+            <Typography gutterBottom variant="headline" component="h2">
+              Create New Group
+                  </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <form onSubmit={handleSubmit(this.onSubmit)}>
+              <Grid container
+                justify="center"
+                spacing={0}>
+                <Field
+                  label="Group Name"
+                  name="groupName"
+                  type="text"
+                  multiline
+                  rowsMax="4"
+                  margin="normal"
+                  className={`${classes.root} ${classes.textField}`}
+                  component={this.renderField} />
+                <Field
+                  label="Description"
+                  name="description"
+                  type="text"
+                  multiline
+                  rowsMax="4"
+                  margin="normal"
+                  className={`${classes.root} ${classes.textField}`}
+                  component={this.renderField} />
+              </Grid>
+              <Grid container> 
+              </Grid>
+              <Grid container
+                justify="center"
+                spacing={0}>
+                <Tooltip title="Create Group">
+                  <Button className={classes.btn} type="submit" variant="contained" size="medium" color="secondary" aria-label="Add">
+                    <AddGroup />
+                  </Button>
+                </Tooltip>
+              </Grid>
+            </form>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      )
+    }
+    // if (this.props.groups.groups && this.props.groups.groups.length > 0) {
+    //   this.setState({ showing: !showing });
+    // }
   }
+
+ 
 
   componentWillMount() {
     this.getGroups();
   }
 
+  getGroups = () => {
+    this.props.getGroups();
+  }
+
+  onSubmit = (values) => {
+    this.props.createGroup(values, () => {
+      this.props.getGroups();
+    });
+  }
+
   render() {
     const { classes } = this.props;
     const { handleSubmit } = this.props;
+
     return (
       <div className={classes.root}>
         <Grid
@@ -165,54 +241,7 @@ class GroupsPage extends Component {
           spacing={0}>
           <Card className={classes.card}>
             <CardContent>
-              <ExpansionPanel className={classes.createGroupShowHide}>
-                <ExpansionPanelSummary expandIcon={
-                  <Tooltip title="Create a Group">
-                    <Button variant="fab" size="small" color="primary" aria-label="Add" className={classes.fab}>
-                      <AddIcon />
-                    </Button>
-                  </Tooltip>
-                }>
-                  <Typography gutterBottom variant="headline" component="h2">
-                    Create New Group
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <form onSubmit={handleSubmit(this.onSubmit)}>
-                    <Grid container
-                      justify="center"
-                      spacing={0}>
-                      <Field
-                        label="Group Name"
-                        name="groupName"
-                        type="text"
-                        multiline
-                        rowsMax="4"
-                        margin="normal"
-                        className={`${classes.root} ${classes.textField}`}
-                        component={this.renderField} />
-                        <Field
-                          label="Description"
-                          name="description"
-                          type="text"
-                          multiline
-                          rowsMax="4"
-                          margin="normal"
-                          className={`${classes.root} ${classes.textField}`}
-                          component={this.renderField} />
-                    </Grid>
-                    <Grid container
-                      justify="center"
-                      spacing={0}>
-                      <Tooltip title="Create Group">
-                        <IconButton type="submit" size="large">
-                          <SendIcon />
-                        </IconButton>
-                      </Tooltip>
-                    </Grid>
-                  </form>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
+            {this.renderCreateGroup()}
             </CardContent>
             {this.renderGroups()}
           </Card>

@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getUsers } from '../../actions/user_actions';
 import { bindActionCreators } from 'redux';
-
-
+import Grid from '@material-ui/core/Grid';
+import GridList from '../../components/UI/GridList/GridList';
+import { Button } from 'mdbreact';
+import './CheckIns.css';
 
 class CheckIns extends Component {
-
 
   componentWillMount() {
     this.fetchUsers();
@@ -16,13 +17,38 @@ class CheckIns extends Component {
     this.props.getUsers();
   }
 
-  render() {
+  renderUsers = () => {
     return (
-      <div>
-        IN checkin page
+      <div> 
+        <GridList userList={this.props.users.users}/>
       </div>
     )
   }
+
+  render() {
+    return (
+      <div>
+        {/* <Grid 
+          direction="row"
+          justify="center"
+          class="checkinHeading"> 
+            <h2>Check In</h2>
+        </Grid> */}
+        <Grid container justify="center">
+          <Grid>
+          </Grid>
+          <Grid 
+          justify="center"
+          spacing={40}>
+              {this.renderUsers()}
+          </Grid>
+        </Grid>
+      </div>
+    )
+  }
+
+
+
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -31,7 +57,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
 
-  console.log(state);
   return {
     users: state.users
   }

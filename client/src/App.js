@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Home from './containers/Home/Home';
+import ReactDOM from 'react-dom';
 //import Messages from './pages/Messages/Messages';
 import About from './pages/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -19,6 +20,7 @@ import Groups from './containers/Groups/Groups';
 import MenuAppBar from './components/UI/AppBar/AppBar';
 
 class App extends Component {
+
 
 
   state = {
@@ -72,6 +74,8 @@ class App extends Component {
     );
   }
 }
+
+
 
 const mapStateToProps = (state) => {
   console.log('IN app');

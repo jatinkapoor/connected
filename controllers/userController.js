@@ -30,7 +30,7 @@ module.exports = {
               firstName: user[0].firstName,
               email: user[0].email
             }, "secret", {
-                expiresIn: '1h',
+                expiresIn: '24h',
               })
             return res.status(200).json({
               message: 'Auth Successful',
@@ -105,6 +105,7 @@ module.exports = {
   },
 
   get_users: (req, res) => {
+    console.log("IN GET USERS");
     const userId = req.userData.userId;
     Group.find({ users: userId })
       .exec()

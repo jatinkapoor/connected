@@ -71,57 +71,40 @@ router.post('/', checkAuth, (req, res) => {
 router.put('/addUser', checkAuth ,(req, res) => {
 
   const userEmail = req.body.email;
+  const groupId = req.body.groupId;
   console.log(userEmail);
-  
-
-
   User.findOne({ email: userEmail }).then(user => {
+    console.log("in add user");
     console.log(user);
-    if (user.length > 0) {
-      
-  //     Group.findOneAndUpdate(
-  //   { _id: groupId },
-  //   { $push: { users: userId } },
-  //   { new: true })
-  // .then(group => {
-  //   res.status(200).json({
-  //     group: group
-  //   })
-  // }).catch(err => {
-  //   res.status(500).json({
-  //     error: err
-  //   });
-  // });
+    if (user) {
+
+      const userId = user._id;
+      console.log("user found");
+          Group.findOneAndUpdate(
+            { _id: groupId },
+            { $push: { users: userId } },
+            { new: true })
+          .then(group => {
+              res.status(200).json({
+                group: group
+              })
+        }).catch(err => {
+          res.status(500).json({
+            error: err
+          });
+        });
     }
+    else {
     res.status(200).json({
-      user: user
+      message: "User Not found"
     })
+  }
 
   }).catch(error => {
     res.status(500).json({
       error: error
     });
   })
-  
-  
-  
-  
-  // const userId = req.body.userId;
-  // const groupId = req.body.groupId;
-
-  // Group.findOneAndUpdate(
-  //   { _id: groupId },
-  //   { $push: { users: userId } },
-  //   { new: true })
-  // .then(group => {
-  //   res.status(200).json({
-  //     group: group
-  //   })
-  // }).catch(err => {
-  //   res.status(500).json({
-  //     error: err
-  //   });
-  // });
 });
 
 module.exports = router;

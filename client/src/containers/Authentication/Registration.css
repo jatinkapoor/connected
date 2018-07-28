@@ -1,8 +1,12 @@
 .registration {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .tab {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+.registrationCard {
+  background-color: white;
 }

@@ -15,7 +15,7 @@ export const ADD_USER_TO_GROUP_SUCCESS = 'ADD_USER_TO_GROUP_SUCCESS';
 export const ADD_USER_TO_GROUP_FAILURE = 'ADD_USER_TO_GROUP_FAILURE';
 
 
-export const createGroup = (group) => {
+export const createGroup = (group, callback) => {
 
   return dispatch => {
 
@@ -34,11 +34,13 @@ export const createGroup = (group) => {
           message: 'Group Created',
           group: result.data
         })
+        callback();
       }).catch(error => {
         dispatch({
           type: CREATE_GROUP_FAILURE,
           message: error
         })
+        callback();
       });
   }
 }
@@ -72,7 +74,9 @@ export const getGroups = () => {
   }
 }
 
-export const addUser = (email) => {
+export const addUser = (email, groupId) => {
+
+
 
   return dispatch => {
 
@@ -84,7 +88,15 @@ export const addUser = (email) => {
     const jwt = localStorage.getItem('jwtToken');
     const token = `Bearer ${jwt}`;
 
-    axios.put('/group/addUser', email, { headers: { Authorization: token } })
+    const reqBody = {
+      groupId: groupId,
+      ...email
+    }
+
+    console.log("reqBody");
+    console.log(reqBody);
+
+    axios.put('/group/addUser', reqBody, { headers: { Authorization: token } })
       .then(result => {
 
         console.log(result);
