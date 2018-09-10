@@ -1,0 +1,123 @@
+.grid {
+    margin-top: 50px;
+}
+
+.place-holder {
+    margin-top: 50px;
+}
+
+.checked-in-feed-card {
+    padding: 4px;
+    line-height: 20px;
+    font-size: 1.5em;
+}
+
+.place-holder-checked-in-feed-card {
+    padding: 4px;
+    line-height: 30px;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: red;
+}
+
+.photo {
+    color: black;
+    position: fixed;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+}
+
+.name-holder {
+    margin-left: 15%;
+}
+
+@media (max-width: 1366px) {
+    .name-holder {
+        margin-left: 9%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .name-holder {
+        margin-left: 12%;
+    }
+}
+
+@media (max-width: 823px) {
+    .name-holder {
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 812px) {
+    .name-holder {
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .name-holder {
+        margin-left: 16%;
+    }
+}
+
+@media (max-width: 736px) {
+    .name-holder {
+        margin-left: 17%;
+    }
+}
+
+@media (max-width: 731px) {
+    .name-holder {
+        margin-left: 17%;
+    }
+}
+
+@media (max-width: 667px) {
+    .name-holder {
+        margin-left: 19%;
+    }
+}
+
+@media (max-width: 640px) {
+    .name-holder{
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 568px) {
+    .name-holder {
+        margin-left: 22%;
+    }
+}
+
+@media (max-width: 414px) {
+    .name-holder {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 411px) {
+    .name-holder {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 375px) {
+    .name-holder {
+        margin-left: 36%;
+    }
+}
+
+@media (max-width: 360px) {
+    .name-holder {
+        margin-left: 35%;
+    }
+}
+
+@media (max-width: 320px) {
+    .name-holder {
+        margin-left: 41%;
+    }
+}

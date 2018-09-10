@@ -1,0 +1,36 @@
+.my-card {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.form-section {
+  margin-top: 50px;
+}
+
+.signIn-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin-left: 30%;
+}
+
+@media screen and (min-width: 600px) {
+  .btn {
+    margin-left: 35%;
+  }
+}
+
+@media screen and (min-width: 840px) {
+  .btn {
+    margin-left: 35%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    margin-left: 26%;
+  }
+}

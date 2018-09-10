@@ -1,0 +1,15 @@
+.messagepost{ 
+    margin-left: 5%;
+    width: 90%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: left;
+    /* height: %; */
+    background-color: #f5f5f5;
+    
+}
+.card{
+    background-color: #f5f5f5;
+}
